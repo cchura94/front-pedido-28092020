@@ -9,14 +9,27 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+//Formulario reactivo
+import { ReactiveFormsModule } from '@angular/forms';
+// Habilitar para consumo de servicis api rest full
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   //componentes
-  declarations: [AppComponent, InicioComponent, NosotrosComponent, ContactoComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    InicioComponent,
+    NosotrosComponent,
+    ContactoComponent,
+    LoginComponent,
+  ],
   //modules
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule, //aqui estamos habilitando el modulo routes (AppRoutingModule)
+    AppRoutingModule, //aqui estamos habilitando el modulo routes (AppRoutingModule)
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,1 +1,18 @@
 <h1>NOSOTROS</h1>
+<h1 *ngIf="cargando">Cargando ...</h1>
+<table border="1">
+  <thead>
+    <tr>
+      <th>TITULO</th>
+      <th>CONTENIDO</th>
+      <th>ACCIONES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let publi of lista_publicaciones">
+      <td>{{ publi.title }}</td>
+      <td>{{ publi.body }}</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
