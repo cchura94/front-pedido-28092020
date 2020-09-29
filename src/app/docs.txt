@@ -1,0 +1,6 @@
+Modulo : routerModule (componenete selector: <router-outlet>, directiva: routerLink)
+
+         SPA     SSR         PWA   APP MOVILES         APP ESCRITORIO
+Angular   x    A. Universal   x      IONIC               Eletron
+React.js  x     next.js       x      React native        Electron
+Vuejs     x     nuxt.js       x                          Electron
