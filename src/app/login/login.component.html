@@ -10,7 +10,9 @@
     Ingrese su contraseña:
     <input type="text" formControlName="password" />
   </label>
-  <button type="submit" [disabled]="!loginForm.valid">Iniciar Sesion</button>
+  <button type="submit" [disabled]="!loginForm.valid" (click)="ingresar()">
+    Iniciar Sesion
+  </button>
 </form>
 
 {{ loginForm.value | json }}

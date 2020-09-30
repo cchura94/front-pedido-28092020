@@ -14,6 +14,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 // Habilitar para consumo de servicis api rest full
 import { HttpClientModule } from '@angular/common/http';
 
+//Toaster
+
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   //componentes
   declarations: [
@@ -30,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

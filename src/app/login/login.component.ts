@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,29 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
 
-  constructor() {}
+  constructor(
+    private loginService: LoginService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {}
+
+  ingresar() {
+    this.loginService.login(this.loginForm.value).subscribe(
+      (datos: any) => {
+        console.log(datos);
+        if (!datos.access_token) {
+          this.toastr.error('Error al iniciar sesion', datos.mensaje);
+        } else {
+          console.log(datos);
+          localStorage.setItem('token', btoa(JSON.stringify(datos)));
+          this.toastr.success('Sesion iniciada', 'Mensaje');
+        }
+      },
+      (error: any) => {
+        console.log(error);
+        this.toastr.error('Error al iniciar sesion');
+      }
+    );
+  }
 }
