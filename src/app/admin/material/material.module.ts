@@ -7,6 +7,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+//import { MatFormFieldModule } from '@angular/material/form-field';
 
 const material_modulos = [
   LayoutModule,
@@ -16,6 +17,7 @@ const material_modulos = [
   MatIconModule,
   MatListModule,
   MatCardModule,
+  //MatFormFieldModule,
 ];
 
 @NgModule({
