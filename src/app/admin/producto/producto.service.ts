@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from './../../../environments/environment';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ProductoService {
 
   headers: HttpHeaders;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     try {
       let token = JSON.parse(atob(localStorage.getItem('token')));
 
@@ -20,6 +21,7 @@ export class ProductoService {
       });
     } catch (error) {
       console.log(error);
+      this.router.navigate(['ingresar']);
     }
   }
 

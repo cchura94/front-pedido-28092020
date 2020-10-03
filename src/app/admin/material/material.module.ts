@@ -8,6 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 //import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
 
 const material_modulos = [
   LayoutModule,
@@ -18,6 +21,9 @@ const material_modulos = [
   MatListModule,
   MatCardModule,
   //MatFormFieldModule,
+  MatTableModule,
+  MatDialogModule,
+  MatInputModule,
 ];
 
 @NgModule({
