@@ -1,0 +1,44 @@
+<h1>NUEVO PEDIDO PARA:</h1>
+
+<mat-card>
+  <h4>CLIENTE:</h4>
+  <p>{{ data.nombres }} {{ data.apellidos }}</p>
+  <h4>TELEFONO:</h4>
+  <p>{{ data.telefono }}</p>
+</mat-card>
+
+<mat-card>
+  <table class="mat-elevation-z8">
+    <thead>
+      <tr>
+        <th>TITULO</th>
+        <th>PRECIO</th>
+        <th>DESCRIPCION</th>
+        <th>STOCK</th>
+        <th>ACCIONES</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of productos">
+        <td>{{ prod.nombre }}</td>
+        <td>{{ prod.precio | currency: "Bs. " }}</td>
+        <td>{{ prod.descripcion }}</td>
+        <td>{{ prod.stock }}</td>
+        <td>
+          <button (click)="agregarCarrito(prod)">+</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h1>Carrito:</h1>
+  <h3>Monto TOTAL: {{ total | currency: "Bs. " }}</h3>
+
+  <div class="card" *ngFor="let carr of carrito">
+    NOMBRE: {{ carr.nombre }}- PRECIO: {{ carr.precio }}
+    <button (click)="incrementar(carr)">+</button> {{ carr.cantidad }}
+    <button (click)="decrementar(carr)">-</button>
+  </div>
+</mat-card>
+
+<button (click)="realizarPedido()">Realizar Pedido</button>

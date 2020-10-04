@@ -1,12 +1,12 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from './../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductoService {
+export class ClienteService {
   urlBase = environment.servidor;
 
   headers: HttpHeaders;
@@ -26,29 +26,35 @@ export class ProductoService {
   }
 
   listar() {
-    return this.http.get(`${this.urlBase}/producto`, { headers: this.headers });
+    return this.http.get(`${this.urlBase}/cliente`, { headers: this.headers });
   }
 
-  guardar(producto) {
-    return this.http.post(`${this.urlBase}/producto`, producto, {
+  guardar(cliente) {
+    return this.http.post(`${this.urlBase}/cliente`, cliente, {
       headers: this.headers,
     });
   }
 
-  modificar(id, producto) {
-    return this.http.put(`${this.urlBase}/producto/${id}`, producto, {
+  modificar(id, cliente) {
+    return this.http.put(`${this.urlBase}/cliente/${id}`, cliente, {
       headers: this.headers,
     });
   }
 
   mostrar(id) {
-    return this.http.get(`${this.urlBase}/producto/${id}`, {
+    return this.http.get(`${this.urlBase}/cliente/${id}`, {
       headers: this.headers,
     });
   }
 
   eliminar(id) {
-    return this.http.delete(`${this.urlBase}/producto/${id}`, {
+    return this.http.delete(`${this.urlBase}/cliente/${id}`, {
+      headers: this.headers,
+    });
+  }
+
+  realizarPedido(data) {
+    return this.http.post(`${this.urlBase}/pedido`, data, {
       headers: this.headers,
     });
   }

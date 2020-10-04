@@ -11,6 +11,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormClienteDialogComponent } from './cliente/form-cliente-dialog/form-cliente-dialog.component';
+import { FormPedidoDialogComponent } from './cliente/form-pedido-dialog/form-pedido-dialog.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PedidoComponent,
     NavbarComponent,
     CreateProductoDialog,
+    FormClienteDialogComponent,
+    FormPedidoDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MaterialModule,
     // Rutas de admin Habilitados
     ReactiveFormsModule,
+    QRCodeModule,
   ],
 })
 export class AdminModule {}

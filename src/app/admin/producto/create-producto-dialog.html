@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Nuevo Producto</h1>
+<h1 mat-dialog-title>{{(estado)?'Modificar Producto':'Nuevo Producto'}}</h1>
 <div mat-dialog-content>
   <form [formGroup]="productoForm">
     <mat-form-field>
@@ -36,7 +36,19 @@
     [disabled]="!productoForm.valid"
     [mat-dialog-close]="productoForm.value"
     (click)="guardarProducto()"
+    *ngIf="!estado"
   >
     Guardar Producto
+  </button>
+
+  <button
+    mat-button
+    color="primary"
+    [disabled]="!productoForm.valid"
+    [mat-dialog-close]="productoForm.value"
+    (click)="modificarProducto()"
+    *ngIf="estado"
+  >
+    Modificar Producto
   </button>
 </div>

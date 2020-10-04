@@ -1,2 +1,23 @@
-<p>cliente works!</p>
-<button mat-fab color="accent">Prueba</button>
+<h1>Cliente</h1>
+<button mat-fab color="accent" (click)="mostrarDialogCliente()">Nuevo</button>
+<button (click)="generarPDF()">generarPDF >PDF</button>
+<table class="mat-elevation-z8">
+  <tr>
+    <td>NOBRES</td>
+    <td>APELLIDOS</td>
+    <td>CORREO</td>
+    <td>TELEFONO</td>
+    <td>ACCIONES</td>
+  </tr>
+  <tr *ngFor="let clie of clientes; let i = index">
+    <td>{{ clie.nombres }}</td>
+    <td>{{ clie.apellidos }}</td>
+    <td>{{ clie.email }}</td>
+    <td>{{ clie.telefono }}</td>
+    <td>
+      <button (click)="mostrarDialogCliente(clie)">editar</button>
+      <button (click)="dialogNuevoPedido(clie)">realizar Pedido</button>
+      <button (click)="eliminarCliente(i, clie._id)">eliminar</button>
+    </td>
+  </tr>
+</table>

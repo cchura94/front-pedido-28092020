@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>{{ estado ? "Modificar Cliente" : "Nuevo Cliente" }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="clienteForm">
+    <mat-form-field>
+      <mat-label>Ingrese Nombres</mat-label>
+      <input matInput type="text" formControlName="nombres" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ingrese Apellidos</mat-label>
+      <input matInput type="text" formControlName="apellidos" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ingrese Correo</mat-label>
+      <input matInput type="email" formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Ingrese Telefono</mat-label>
+      <input matInput type="text" formControlName="telefono" />
+    </mat-form-field>
+  </form>
+
+  {{ clienteForm.value | json }}
+  <p>Es valido?: {{ clienteForm.valid }}</p>
+
+  <p>Estado: {{ clienteForm.status }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cerrar</button>
+
+  <button
+    mat-button
+    color="primary"
+    [disabled]="!clienteForm.valid"
+    [mat-dialog-close]="clienteForm.value"
+    (click)="guardarCliente()"
+    *ngIf="!estado"
+  >
+    Guardar Cliente
+  </button>
+
+  <button
+    mat-button
+    color="primary"
+    [disabled]="!clienteForm.valid"
+    [mat-dialog-close]="clienteForm.value"
+    (click)="modificarCliente()"
+    *ngIf="estado"
+  >
+    Modificar Cliente
+  </button>
+</div>
